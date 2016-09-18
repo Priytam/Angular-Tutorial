@@ -1,0 +1,5 @@
+<input type="text" ng-model="$parent.filterText" class="form-control" placeholder="Search Shows"/> <br/>
+<select ng-model="$parent.genreFilter" class="form-control">
+  <option value="" selected>Filter by Genre</option>
+  <option ng-repeat="genre in allGenres" value="{{genre}}">{{genre}}</option>
+</select>

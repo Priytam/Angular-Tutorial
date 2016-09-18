@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-xs-3">
+        <img ng-src="{{showInfo.images.poster.thumb}}" class="img-responsive img-rounded"/>
+    </div>
+    <div class="col-xs-9">
+        <h3><b>Title:</b> {{showInfo.title}}</h3>
+        <h4><b>Status:</b> {{showInfo.status | uppercase}}</h4>
+        <h4><b>Year:</b> {{showInfo.year}}</h4>
+        {{showInfo.overview}}
+    </div>
+</div>
+<br/>
+<h3>Seasons:</h3>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-3" ng-repeat="season in showSessions track by season.number">
+            <img ng-src="{{season.images.poster.thumb}}" class="img-thumbnail img-responsive"><br/>
+            <div style="margin-top: 8px; padding-bottom: 15px;">
+                <i class="glyphicon glyphicon-star" style="color: gold"></i> {{season.rating | number:1}}
+                <i class="glyphicon glyphicon-hd-video"></i> {{season.episode_count}}
+            </div>
+        </div>
+    </div>
+</div>

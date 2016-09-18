@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TV Series Web Application - Step 4</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <style>
+        body {
+          padding-top: 60px;
+        }
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+        {
+          display: none !important;
+        }
+    </style>
+</head>
+<body ng-app="tvSeriesApp">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">TV Series</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3" ng-controller="TvSeries" ng-cloak>
+          <h4>Popular Shows</h4>
+          <input type="text" ng-model="filterText" class="form-control" placeholder="Search Shows"/> <br/>
+          <select ng-model="genreFilter" class="form-control">
+            <option value="" selected>Filter by Genre</option>
+            <option ng-repeat="genre in allGenres" value="{{genre}}">{{genre}}</option>
+          </select>
+          <div class="media" ng-repeat="serie in tvSeries | filter:filterText | isGenre:genreFilter | orderBy:'year' track by serie.title">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" height="64" width="64" ng-src="{{serie.images.poster.thumb}}" alt="{{serie.title}}">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">{{serie.title}} ({{serie.year}})</h4>
+              <i class="glyphicon glyphicon-star" style="color: gold"></i>{{serie.rating | number:1}}<br/>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-9">
+          <div class="text-center">
+            <h2> Select a Show </h2>
+          </div>
+        </div>
+    </div>
+</div><!-- /.container -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+
+<script src="app.js"></script>
+</body>
+</html>

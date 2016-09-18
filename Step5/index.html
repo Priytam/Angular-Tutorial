@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TV Series Web Application - Step 5</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+    <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.min.css' type='text/css' media='all' />
+    <style>
+        body {
+            padding-top: 60px;
+        }
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+        {
+            display: none !important;
+        }
+    </style>
+</head>
+<body ng-app="tvSeriesApp">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">TV Series</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3" ng-controller="TvSeries" ng-cloak>
+            <h4>Popular Shows</h4>
+            <div ng-include="'templates/search.html'"></div>
+            <div class="media" ng-repeat="serie in tvSeries | filter:filterText | isGenre:genreFilter | orderBy:'year' track by serie.title">
+                <div class="media-left">
+                    <a href="#show/{{serie.ids.trakt}}">
+                        <img class="media-object img-circle" height="64" width="64" ng-src="{{serie.images.poster.thumb}}" alt="{{serie.title}}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <a href="#show/{{serie.ids.trakt}}">
+                        <h4 class="media-heading">{{serie.title}} ({{serie.year}})</h4>
+                    </a>
+                    <i class="glyphicon glyphicon-star" style="color: gold"></i>{{serie.rating | number:1}}<br/>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <ng-view></ng-view>
+        </div>
+    </div>
+</div><!-- /.container -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src='bower_components/angular-loading-bar/build/loading-bar.min.js'></script>
+
+<script src="app.js"></script>
+<script src="services/tvSeriesService.js"></script>
+<script src="filters/isGenreFilter.js"></script>
+<script src="controllers/tvSeries.js"></script>
+<script src="controllers/showInfo.js"></script>
+</body>
+</html>

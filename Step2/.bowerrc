@@ -1,0 +1,4 @@
+{
+  "proxy":"http://proxy-chain.intel.com:911/",
+  "https-proxy":"http://proxy-chain.intel.com:911"
+}
