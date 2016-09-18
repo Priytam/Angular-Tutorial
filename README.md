@@ -25,5 +25,5 @@ For detail please follow the wikki page
 *3
 ![alt tag](https://github.com/Priytam/Angular-Tutorial-1/blob/master/images/step-5-3.jpg)
 
-#Step-1
-![alt tag](https://github.com/Priytam/Angular-Tutorial-1/blob/master/images/step-1.jpg)
+#Step-6
+![alt tag](https://github.com/Priytam/Angular-Tutorial-1/blob/master/images/step-6.jpg)
