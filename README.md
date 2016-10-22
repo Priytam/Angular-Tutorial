@@ -1,4 +1,6 @@
-# Angular-Tutorial-1
+<img src="https://lh3.googleusercontent.com/-lTK0EFd5OVo/AAAAAAAAAAI/AAAAAAAAABY/_SsW6-AREEw/s60-p-rw-no/photo.jpg"  align="right" />
+
+# Angular-Tutorial
 
 For detail please follow the wikki page 
 (https://github.com/Priytam/Angular-Tutorial-1/wiki)
